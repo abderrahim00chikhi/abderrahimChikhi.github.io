@@ -1,0 +1,464 @@
+
+@font-face {
+  font-family: mukta sans-serif;
+  src: url("../tools/fonts/Mukta-Regular.ttf") format("truetype");
+}
+*::before,
+*::after {
+  content: "";
+  clear: both;
+}
+* {
+  font-family: mukta sans-serif;
+  user-select: none;
+  color: var(--text_color);
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-drag: none;
+  user-zoom: none;
+  zoom: 0.98;
+  transition: 200ms;
+  
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background: var(--backgroud_color) ;
+  animation: fade_in 400ms;
+  -webkit-animation: fade_in 400ms;
+}body::-webkit-scrollbar {
+    display: none;
+}
+.light_mode_btn,.dark_mode_btn{
+  display:flex;
+  flex-direction: row;
+}
+.light_mode_btn img,.dark_mode_btn img{
+  background: transparent;
+  transition: 200ms;
+  width:5%;
+  flex-grow: 0.3;
+  animation :none;
+}
+.light_mode_btn img:hover ,.dark_mode_btn img:hover {
+  transform: scale(0.9);
+}
+.go_out{
+  animation: go_out 0.3s;
+  -webkit-animation: go_out 0.3s;
+}
+.marked{
+  color:var(--spc_color1);
+}
+img:not(#logo){
+  animation: fade_in 300ms;
+}
+ [class*="main_cont"]:not(.main_cont1,.main_cont2){
+  width: 90%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  align-items: center;
+  text-align: center;
+  border-radius: 20px;
+}
+[class*="main_cont"]:not(.main_cont3){
+  animation: fade_in 500ms;
+}
+.loader{
+  position: absolute;
+  z-index: 10;
+  display:flex;
+  flex-direction: row column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.3);
+}.loader img{
+  flex-grow: 1 1;
+}
+.main_cont1,.main_cont2{
+  width: 90%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  align-items: center;
+  text-align: center;
+  margin-top:80px;
+}
+.main_cont0 .alert {
+  font-size: 30px;
+}
+.main_cont3{
+  animation:get_in 500ms;
+}
+
+
+button{
+    border: none;
+  outline: none;
+}
+.main_cont0 button {
+  color: var(--backgroud_color);
+  border-radius: 20px;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: 300ms;
+}
+.main_cont0 button:hover {
+  padding: 7px 20px;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--backgroud_color);
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 60px;
+  z-index: 1000;
+}
+nav img:not(:first-child) {
+  width: 13px;
+  flex-grow: 0.1;
+  margin-right: 60px;
+  transition: 0.2s ease-in-out;
+}
+nav img:not(#logo):hover {
+  transform: scale(0.8);
+  cursor: pointer;
+}
+nav input {
+  flex-grow: 1;
+  margin-right: 30px;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text_color);
+  font-size: 15px;
+  transition: 0.2s;
+  animation :none;
+}nav input::placeholder{
+  color:var(--text_color);
+}nav input:hover{
+  padding-right: 30px;
+}
+nav h1 {
+  margin: 10px 30px;
+  flex-grow: 7;
+  animation: switch 500ms;
+  -webkit-animation: switch 500ms;
+}#logo{
+  animation:get-right 500ms;
+  border-radius:0 20px 20px 0 ;
+  padding:5px 0;
+  -webkit-border-radius:0 20px 20px 0 ;
+  -moz-border-radius:0 20px 20px 0 ;
+  -ms-border-radius:0 20px 20px 0 ;
+  -o-border-radius:0 20px 20px 0 ;
+}
+
+.poster{
+  width: 250px;
+  height: 550px;
+  display: inline-block;
+  margin: 20px;
+  
+}
+.poster img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  margin-top: 30px;
+  transition: 0.3s ease-in-out;
+}
+.poster p:first-of-type {
+  color: var(--spc_color1);
+  padding: 0px;
+  float: left;
+}
+
+.poster p {
+  display: inline-block;
+}.poster .posterType{
+  transition: 0.3s all;
+
+}.poster .posterType::after{
+  transition: 0.3s all;
+  content: '(';
+  color: transparent;
+}
+.poster .posterType:hover::after{
+  content: '(Type)';
+  padding-left: 10px;
+  
+  display: inline;
+}
+.poster h1 {
+  font-size: 20px;
+  display: block;
+}
+.isNotFav {
+  color: var(--spc_color2);
+  float: right;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 300ms;
+}
+.isFav {
+  color: var(--spc_color1);
+  float: right;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 300ms;
+}
+.isFav:hover,
+.isNotFav:hover {
+  padding-right: 10%;
+  border-right: 1px solid;
+}.isNotFav:hover{
+  cursor: cell;
+}.isFav:hover{
+  cursor:grab;
+}
+.poster img:hover,.info_earea .main_cover img:hover {
+  transform: scale(0.8) translateX(10deg) translateY(10deg);
+  filter:invert(1.1);
+  cursor:pointer;
+  -webkit-transform: scale(0.8) translateX(10deg) translateY(10deg);
+  -moz-transform: scale(0.8) translateX(10deg) translateY(10deg);
+  -ms-transform: scale(0.8) translateX(10deg) translateY(10deg);
+  -o-transform: scale(0.8) translateX(10deg) translateY(10deg);
+  -webkit-filter:invert(1.1);
+}
+.favList{
+  display: flex;
+  flex-direction: column;
+  background-color: var(--text-color);
+  width: 10%;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top:45px;
+  margin-right: -4%;
+  float: right;
+  top: 0;
+  padding: 1%;
+  transition: 0.3s all;
+}
+
+.favList h1{
+  color: var(--backgroud_color);
+  font-size: 14px;
+  text-align: left;
+  transition: 0.3s all;
+	animation: append-animate .3s linear;
+
+}
+
+
+@keyframes append-animate {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;	
+	}
+}
+
+/* animate new box */
+
+.empty-fav h1{
+ color:var(--spc_color1) !important;
+}.empty-fav h2{
+  color: var(--spc_color2);
+}
+
+.main_cont3 .info_earea{
+  animation: get_in 1s;
+  display: flex ;
+  flex-direction:row;
+
+}.info_earea .main_cover{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0.5;
+  width:50%;
+}.info_earea .main_cover img{
+  object-fit: cover;
+  padding: 0 20%;
+  flex-grow: 0.5;
+}
+
+.info_earea .info_text{
+  padding: 5% 0;
+  width:50%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  
+  /*background:  linear-gradient(to top,rgba(0, 0, 0, 1),rgba(0, 0, 0, 0.513)),  url('../img/anime/demon_slayer.jpg') center 100%;
+  */
+
+}
+.info_earea .info_text h1{
+  font-size:30px;
+  display: flex;
+  margin: 4vh 10%;
+  color:var(--text_color);
+  
+}.info_earea .info_text p{
+   font-size:20px;
+   color:var(--text_color);
+}.info_earea .specification{
+  float: right;
+  transition:200ms;
+  padding-right: 10%;
+}.info_earea .specification::first-line{
+  color:var(--spc_color1);
+}
+.info_earea .episods{
+  float: left;
+  color: var(--spc_color1);
+  transition:200ms;
+  padding-left: 10%;
+  border-left:2px solid;
+}.info_earea .episods::first-line{
+  color:var(--spc_color1);
+}
+.info_text .about{
+
+  width:80%;
+  margin: 3vh auto;
+  padding:15px;
+  border:none;
+  border-top: 1px solid;
+  text-align: left;
+}.info_text .about legend{
+  color: rgb(47, 0, 255);
+  font-size:25px;
+  text-align: left;
+  margin-left: 10px;
+}
+.placeOfPar{
+  padding:0px 50px;
+}
+
+
+
+
+
+@keyframes fade_in {
+  0%{ opacity:0; left:100%}
+  100%{
+    opacity:1;
+    transform:translate(-50% 0);
+    -webkit-transform:translate(-50% 0);
+    -moz-transform:translate(-50% 0);
+    -ms-transform:translate(-50% 0);
+    -o-transform:translate(-50% 0);
+}
+}@keyframes get_in {
+  0%{
+    opacity:0;
+    left:200%;
+    transform: scale(2) rotateY(-20deg) rotateX(0);
+    filter: blur(2px);
+
+}
+   100%{
+  opacity:1;
+  transform: translate(-50% 0);
+}  
+
+}@keyframes switch {
+  0%{
+    opacity:0;
+    padding-bottom: 100%;
+
+}100%{
+  padding-bottom: auto;
+}
+}
+@keyframes get_in_without_scale {
+  0%{
+    opacity:0;
+    left:200%;
+    transform: rotateY(-20deg) rotateX(0);
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+}
+   100%{
+  opacity:1;
+  transform: translate(-50% 0);
+}  
+}
+@keyframes go_out{
+  0%{
+
+  }50%{opacity:0;}
+  100%{
+    margin-right: 200%;
+    display:none;
+    transform: scale(0.85) rotateY(-10deg) rotateX(-10deg);
+    
+}
+}
+@keyframes go_out {
+  0% {
+  }
+  100% {
+    opacity: 0;
+    margin-right: 200%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  body {
+    width: 100%;
+  }
+  [class*='main_cont'] {
+    width: 95%;
+  }
+  .poster h1 {
+    font-size: 4vw;
+  }
+  .poster p {
+    font-size: 3vw;
+  }
+  .poster {
+    width: 40%;
+    height: 100%;
+  }
+  .poster img {
+    width: 100%;
+    height: 50%;
+    }
+}@media screen and (max-width: 800px) {
+  body {
+    width: 100%;
+  }
+  [class*='main_cont'] {
+    width: 95%;
+  }
+  .poster h1 {
+    font-size: 4vw;
+  }
+  .poster p {
+    font-size: 3vw;
+  }
+  .poster {
+    width: 80%;
+    height: 100%;
+  }
+  .poster img {
+    width: 100%;
+    height: 50%;
+    }
+}
